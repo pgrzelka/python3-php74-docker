@@ -1,5 +1,3 @@
-# docker base image for basic programming tools
-
 FROM ubuntu:focal
 
 ENV TZ=Europe/Warsaw
@@ -16,7 +14,7 @@ RUN pecl channel-update pecl.php.net
 
 RUN curl -fsSL https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
-    && composer global require phpunit/phpunit ^5.7 --no-progress --no-scripts --no-interaction
+    && composer global require phpunit/phpunit ^7.5.20 --no-progress --no-scripts --no-interaction
 
 RUN pecl install xdebug \
     && echo 'zend_extension=/usr/lib/php/20190902/xdebug.so' > \
